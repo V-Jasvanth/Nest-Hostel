@@ -1,0 +1,162 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f1e6;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #7d5c37;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #333333;
+}
+
+header h1 {
+    margin: 0;
+    color: #FFFFFF;
+}
+
+header button {
+    background-color: #a47657;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #FFFFFF;
+    margin-left: 10px;
+}
+
+header button:hover {
+    background-color: #555555;
+}
+
+main {
+    padding: 20px;
+}
+
+nav {
+    margin-bottom: 20px;
+}
+
+nav button {
+    background-color: #412f22;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #FFFFFF;
+    margin: 5px;
+}
+
+nav button:hover {
+    background-color: #555555;
+}
+
+.Box {
+    background-color: #ffc37f;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #333333;
+}
+
+.Box input {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #333333;
+    border-radius: 4px;
+}
+
+.Box button {
+    background-color: #412f22;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #FFFFFF;
+    margin: 5px 0;
+}
+
+.Box button:hover {
+    background-color: #555555;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #333333;
+}
+
+th {
+    background-color: #412f22;
+    color: #f9dbb8;
+}
+
+tfoot {
+    background-color: #000000;
+    padding: 10px;
+    text-align: center;
+    border-top: 2px solid #333333;
+}
+
+tfoot button {
+    background-color: #333333;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+tfoot button:hover {
+    background-color: #555555;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header button {
+        margin-top: 10px;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    nav button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .Box {
+        padding: 10px;
+    }
+
+    .Box button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    table, th, td {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}
+

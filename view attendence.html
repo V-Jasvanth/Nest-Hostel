@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>View attendence</h1>
+        <a href="HOME/main home.html">
+            <button id="home button">Home</button>
+        </a>
+        <a>
+            <button id="logout" onclick="logout()" alt="logout">logout</button>
+        </a>
+    </header>
+    <main>
+        <div><h2>Attendence QR code</h2></div>
+        <div id="AttendenceQrcode"></div>
+        <div id="Date"></div>
+        <p>Date  <input id="inDate" type="date">
+            <button type="submit" id="viewAt">view</button>
+            &nbsp;
+            <button id="filterBtn" type="button">Filter</button>
+        </p>
+        <filter id="filterBox" class="Box" style="display: none;">
+            <input id="inDate1" type="date">
+            <br>
+            <input id="roomNo" type="number" placeholder="Room Number">
+            <br>
+            <input id="StuId" type="number" placeholder="Student Id">
+            <br>
+            <p>Status: <span id="Status"></span>
+            
+                <br>
+                <button type="submit" id="SubFilter"> submit</button>
+            </p>
+        </filter>
+        <roomNO id="roomNoCol">
+
+        </roomNO>
+        <stuid id="StuidCol">
+
+        </stuid>
+        <status id="statusCol">
+
+        </status>
+
+    </main>
+    <footer>
+
+    </footer>
+    <script type="module" src="SCRIPT/admin view attendenceF.js"></script>
+    <script type="module" src="SCRIPT/admin view attendenceB.js"></script>
+</body>
+</html>

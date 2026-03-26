@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>manage rooms</title>
+    <link rel="stylesheet" href="/STYLES/manage room.css">
+</head>
+
+<body>
+    <header>
+        <h1 style="display: inline;">Manage rooms</h1>
+        <a href="/ADMIN/admin home page.html">
+            <button id="home button" type="button" class="">Home</button>
+        </a>
+        <a>
+            <button id="logout"  type="button">logout</button>
+        </a>
+    </header>
+    
+    <main>
+        <div id="genralRooms">
+            <input id="generalRoomNumber" type="number" placeholder="General Room number">
+            <p id="indicator"></p>
+            <button id="addgenroom">Add genral rooms</button>
+            <button id="deletegenroom">delete room</button>
+            
+        </div>
+        <div id="bedRooms">
+            <input id="bedRoomnumber" type="number" placeholder="Bed Room number">
+            <p id="indicator1"></p> 
+            <button id="editbedroom">Edit bedroom</button>
+            <input id="nBeds" type="number" placeholder="Total Number of beds" style="display: none;">
+            <p id="indicator2"></p>
+            <button id="addBed" style="display: none;" >Add bed</button>
+            <input id="bedNum" style="display: none;" placeholder="Enter Bed Number">
+            <p id="indicator3"> </p>
+            <button id="RemoveBed" style="display: none;">Remove bed</button>
+            <button id="addbedroom" >Add bedrooms</button>
+            <button id="deletebedroom">delete room</button>
+        </div>
+        <generalRooms>
+            <h2>General Rooms</h2>
+            <table>
+                <thead>
+                    <th scope="col">Room No.</th>
+                    <th scope="col">Students alloted</th>
+                </thead>
+                <tbody id="GroomsDataTable">
+
+                </tbody>
+            </table>
+        </generalRooms>
+        <BedRooms>
+            <h2>BedRooms</h2>
+            <table>
+                <thead>
+                    <th scope="col">Room No.</th>
+                    <th scope="col">Students alloted</th>
+                    <th scope="col">No. of Beds </th>
+                </thead>
+                <tbody id="BroomsDataTable">
+
+                </tbody>
+            </table>
+        </BedRooms>
+
+    </main>
+    
+    <footer>
+        <button id="testButton">Testbutton</button>
+
+    </footer>
+    <script type="module" src="/SCRIPT/manageRoomsB.js"></script>
+    <script type="module" src="/SCRIPT/manageRoomsF.js"></script>
+</body>
+
+</html>

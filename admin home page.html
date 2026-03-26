@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home Page</title>
+    <link rel="stylesheet" href="/STYLES/adminhome.css">
+</head>
+<body>
+    <header>
+        <h1>Admin Home Page</h1>
+        <button id="logoutBtn">Logout</button>
+    </header>
+    <main>
+        <nav>
+            <button onclick="navTo('/ADMIN/manage rooms.html')">Manage Rooms</button>
+            <button onclick="navTo('/ADMIN/manage students.html')">Manage Students</button>
+            <button onclick="navTo('/ADMIN/view attendence.html')">View Attendance</button>
+        </nav>
+    </main>
+    <footer></footer>
+    <script  src="/SCRIPT/admin home page.js"></script>
+</body>
+</html>

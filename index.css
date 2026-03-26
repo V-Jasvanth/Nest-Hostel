@@ -1,0 +1,80 @@
+header {
+    position: fixed;
+    top: 0;
+    width: 90%;
+    background-color: transparent;
+    color: rgb(255, 213, 168);
+    text-align: center;
+    padding: 10px 0;
+    z-index: 1000;
+}
+header::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(29, 28, 28, 0.427); /* Adjust the color and alpha to get your desired tint */
+    z-index: -1; /* En
+}
+
+.logo {
+    max-height: 50px; /* Adjust the height as needed */
+}
+body {
+    background-image: url('/images/main\ home\ bg.jpg');
+    background-size: cover; /* This makes the image cover the whole background */
+    background-position: center; /* This centers the background image */
+    background-repeat: no-repeat; /* This prevents the image from repeating */
+}
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(29, 28, 28, 0.427); /* Adjust the color and alpha to get your desired tint */
+    z-index: -1; /* Ensure the overlay is behind all other content */
+}
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh; /* Full viewport height */
+    margin-top: 15%; /* Remove default margins */
+}
+
+/* Centered form box */
+.form-box {
+    text-align: center;
+    background-color: #869d9d;
+    padding: 20px;
+    border-radius: 2px;
+    box-shadow: 0 0 40px rgba(19, 19, 19, 0.968);
+    width: 450px;
+    height: 250px;
+
+}
+.input-container{
+    text-align: center;
+    margin-top: 12%;
+}
+.input-feilds input[type="text"],input[type="password"]{
+    width: 100%; /* Full width of the form box */
+    padding: 10px; /* Padding inside the input field */
+    margin: 10px 0; /* Margin around the input field */
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+    border: 1px solid #ccc; /* Border styling */
+    border-radius: 5px
+}
+#heading {
+    color: #352a1f; /* Change this color to whatever you prefer */
+    font-size: 18px; /* Adjust the font size if needed */
+    text-align: center; /* Center the text */
+    text-shadow: 0 0 40px rgba(19, 19, 19, 0.968); /* Corrected text shadow property */
+}
+#form-box::before{
+    text-shadow: 0 0 40px rgba(152, 78, 78, 0.968);   
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardian Home Page</title>
+    <link rel="stylesheet" href="/STYLES/guardianHomepage.css">
+</head>
+<body>
+    <header>
+        <h1>Guardian Home Page</h1>
+        <button id="logoutBtn">Logout</button>
+    </header>
+    <main>
+        <button id="studentProfile">Student Details</button>
+        <button id="requestPermission">Request Permission</button>
+        <button id="guardianProfile">Profile</button>
+        <div id="studentProfileBox" class="Box" style="display: none;">
+            <h3>Student details</h3>
+            <table>
+                <thead id="Thead">
+                </thead>
+                <tbody id="Tbody">
+                </tbody>
+            </table>
+        </div>
+
+        <div id="guardianProfileBox" class="Box" style="display: none;">
+            <h3>Profile</h3>
+            <table>
+                <thead id="Theadg">
+                </thead>
+                <tbody id="Tbodyg">
+                </tbody>
+            </table>
+        </div>
+
+        <div id="requestPermissionBox" class="Box" style="display: none;">
+            <h3>Request Permission</h3>
+            <div><input type="text" id="reasonIn" placeholder="Reason.."></div>
+            <div><input type="date" id="dateIn"></div>
+            <p id="indicator"></p>
+            <div><button id="sendRequest">Send Request</button></div>
+            <div id="pendingPermissions">
+                <h3>Permissions</h3>
+                <table>
+                    <thead id="Theadp">
+                        <th scope="col">PermissionId</th>
+                        <th scope="col">reason</th>
+                        <th scope="col">date</th>
+                        <th scope="col">status</th> 
+                    </thead>
+                    <tbody id="Tbodyp">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+       
+    </main>
+    <footer>
+        <button id="testButton">Test Button</button>
+    </footer>
+    <script type="module" src="/SCRIPT/guardian home pageB.js"></script>
+    <script type="module" src="/SCRIPT/guardian home pageF.js"></script>
+</body>
+</html>

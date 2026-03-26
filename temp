@@ -1,0 +1,226 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+import { getDatabase, ref, onValue, push } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+
+const appSetting = {
+  databaseURL: "https://nest-hostel-default-rtdb.asia-southeast1.firebasedatabase.app"
+};
+
+const app = initializeApp(appSetting);
+const database = getDatabase(app);
+const Students = ref(database, "Students");
+const Guardians = ref(database, "Guardians");
+const Permissions = ref(database, "Permissions");
+
+let StudentsArray = [];
+let GuardiansArray = [];
+let PermissionsArray =[];
+let permissionDetails ={}
+
+onValue(Permissions, function(snapshot) {
+    if (snapshot.exists()) {
+        PermissionsArray = Object.entries(snapshot.val());
+    }
+});
+onValue(Students, function(snapshot) {
+    if (snapshot.exists()) {
+        StudentsArray = Object.entries(snapshot.val());
+    }
+});
+
+onValue(Guardians, function(snapshot) {
+    if (snapshot.exists()) {
+        GuardiansArray = Object.entries(snapshot.val());
+    }
+});
+
+const Oid = sessionStorage.getItem("Oid");
+class Permission{
+    constructor(){
+        this.permissionDetails = permissionDetails;
+        this.status = status;
+    }
+}
+function parseCustomDateFormat(dateString) {
+    // Example: Assuming dateString format is '00-00-00' (DD-MM-YY)
+    let parts = dateString.split('-');
+    
+    // Check if there are exactly three parts
+    if (parts.length !== 3) {
+        return null; // Invalid format
+    }
+
+    let day = parseInt(parts[0], 10); // Convert day part to integer
+    let month = parseInt(parts[1], 10) - 1; // Convert month part to integer (subtract 1 as months are 0-indexed in JavaScript)
+    let year = 2000 + parseInt(parts[2], 10); // Convert year part to integer and adjust to full year
+
+    // Check if parts are valid numbers
+    if (isNaN(day) || isNaN(month) || isNaN(year)) {
+        return null; // Invalid format
+    }
+
+    // Create a new Date object
+    let dateObject = new Date(year, month, day);
+
+    // Check if the dateObject is valid
+    if (isNaN(dateObject.getTime())) {
+        return null; // Invalid date
+    }
+
+    return dateObject; // Return the valid Date object
+}
+
+
+// to display guardian profile
+function guardianProfile(){
+    let gdisplay={}
+    for (let i = 0; i < GuardiansArray.length; i++){
+        let Glist = GuardiansArray[i]
+        let objectId = Glist[0]
+        let guardian = Glist[1]
+        if(Oid === objectId){
+            gdisplay = {
+                name: `Name: ${guardian.gname}`,
+                sphno: `Student Phone: ${guardian.sphno}`,
+                gphno: `Guardian Phone: ${guardian.gphno}`,
+            };
+            addRows();
+            break;
+
+        }
+    }
+    function gcreateRow(content) {
+        let newRow = document.createElement("tr");
+        let cell = document.createElement("td");
+        cell.textContent = content;
+        newRow.appendChild(cell);
+        return newRow;
+    }
+
+    function addRows() {
+        let tableBody = document.querySelector("#Tbodyg");
+        // Clear existing rows
+        tableBody.innerHTML = "";
+        // Create and append rows for each property in the display object
+        tableBody.appendChild(gcreateRow(gdisplay.name));
+        tableBody.appendChild(gcreateRow(gdisplay.sphno));
+        tableBody.appendChild(gcreateRow(gdisplay.gphno));
+    }
+}
+// To search student from guardian's sid
+function searchStudent(){
+    for (let i = 0; i < GuardiansArray.length; i++){
+        let Glist = GuardiansArray[i]
+        let objectId = Glist[0]
+        let guardian = Glist[1]
+        if(Oid === objectId){
+            SID = guardian.sid
+            studentProfile(SID)
+            break;
+        }else{
+            console.log("searchStudent Error") 
+        }
+    }
+}
+// To display student profile 
+function studentProfile(SID) {
+    let display = {}; // Initialize display object
+
+    // Clear previous rows
+    for (let i = 0; i < StudentsArray.length; i++) {
+        let Slist = StudentsArray[i];
+        let objectId = Slist[0];
+        let student = Slist[1];
+        if (SID === student.sid) {
+            display = {
+                name: `Name: ${student.sname}`,
+                sid: `Student ID: ${student.sid}`,
+                gname: `Guardian: ${student.gname}`,
+                sphno: `Student Phone: ${student.sphno}`,
+                gphno: `Guardian Phone: ${student.gphno}`,
+                broom: `Bedroom: ${student.broom}`,
+                groom: `General Room: ${student.groom}`
+            };
+            addRows();
+            break; // Exit loop once the profile is found
+        }
+    }
+
+    function createRow(content) {
+        let newRow = document.createElement("tr");
+        let cell = document.createElement("td");
+        cell.textContent = content;
+        newRow.appendChild(cell);
+        return newRow;
+    }
+
+    function addRows() {
+        let tableBody = document.querySelector("#Tbody");
+        // Clear existing rows
+        tableBody.innerHTML = "";
+        // Create and append rows for each property in the display object
+        tableBody.appendChild(createRow(display.name));
+        tableBody.appendChild(createRow(display.sid));
+        tableBody.appendChild(createRow(display.gname));
+        tableBody.appendChild(createRow(display.sphno));
+        tableBody.appendChild(createRow(display.gphno));
+        tableBody.appendChild(createRow(display.broom));
+        tableBody.appendChild(createRow(display.groom));
+    }
+}
+let status = "NOT ACCEPTED"
+function requestPermision(){
+    let currentDate = new Date()
+    let requestsent = false;
+    let reason = document.getElementById("reasonIn").value;
+    let permisionId = getRandomNumber(10 , 100)
+    let date =  document.getElementById("dateIn").value;
+    let  Sid
+    let prasedate = parseCustomDateFormat(date)
+    console.log(prasedate)
+    for (let i = 0; i < GuardiansArray.length; i++){
+        let Glist = GuardiansArray[i]
+        let objectId = Glist[0]
+        let guardian = Glist[1]
+        if(Oid === objectId){
+           Sid = guardian.sid
+        }
+    }
+    console.log(Sid)
+    function getRandomNumber() {
+        let randomNumber = Math.floor(Math.random() * 100000);
+        let fiveDigitNumber = String(randomNumber).padStart(5, '0');
+        return fiveDigitNumber;
+    }
+    if(!reason || !date){
+        console.log("enter details")
+    }else if( prasedate > currentDate){
+        console.log("Enter a propper date")
+    }
+    else{
+            permissionDetails = {
+                Reason: reason,
+                Date: date,
+                StudentID: Sid,
+                permisionId: permisionId
+        }
+        let newPermission = new Permission(permissionDetails,status)
+        push(Permissions, newPermission)
+        requestsent = true
+        console.log("request sent succesfully")
+       // if(requestsent){
+         //   window.location.reload();
+       // }
+    }
+}
+document.getElementById("studentProfile").addEventListener('click', function() {
+    console.log("student profile button clicked");
+   searchStudent();
+});
+document.getElementById("guardianProfile").addEventListener('click', function() {
+    console.log("guardian profile button clicked");
+   guardianProfile();
+});
+document.getElementById("sendRequest").addEventListener('click', function(){
+    console.log("request permission button clicked ");
+    requestPermision();
+})

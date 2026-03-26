@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>manage students</title>
+    <link rel="stylesheet" href="/STYLES/manage student.css">
+
+</head>
+<body>
+    <header>
+        <h1>Manage Students</h1>
+        <a href="/code/HOME/main home.html">
+            <button id="home button">Home</button>
+        </a>
+        <a>
+            <button id="logout" onclick="logout()" alt="logout">logout</button>
+        </a>
+    </header>
+    <main>
+        <nav>
+            <button id="Addstudent">Add student</button>
+            <button id="deleteStudent">Delete student</button>
+            <button id="UpdateStudent">Update student</button>
+        </nav>
+        <!-- input for student id to update details-->
+        <bUpdate id="bUpdateBox"  style="display: none;" class="Box">
+            <input id="UpdateStudentId" type="number" placeholder=" Student Id">
+            <p id="indicator3"></p>
+            <button id="changeDetails">Change details</button>
+            <br>
+        </bUpdate>
+
+        <!-- add student box-->
+        <addStudent id="addStudentBox"  style="display: none;" class="Box">
+            <input id="studentName" type="text" placeholder="Student Name">
+            <br>
+            <input id="AddStudentId" type="number" placeholder="student Id">
+            <br>
+            <input id="studentPhNo" type="number" placeholder="Student Mobile.no">
+            <br>
+            <input id="guardianName" type="text" placeholder="Guardian Name">
+            <br>
+            <input id="guardianPhNo" type="number" placeholder="Guardian Mobile.no">
+            <br>
+            <input id="genRoomNo" type="number" placeholder="General Room number">
+            <br>
+            <input id="bedRoomNo" type="number" placeholder="Bed Room number">
+            <br>
+            <p id="indicator1"></p>
+            <button  id="addStuSubmitBtn" >Add student</button>
+            <br>
+        </addStudent>
+        <!-- delete student box-->
+        <deleteStudent id="deleteStudentBox" style="display: none;" class="Box">
+            <input id="DelStudentId" type="number" placeholder="Student id">
+            <br>
+            <input id="DelGenRoomNO" type="number" placeholder="General Room number">
+            <br>
+            <input id="DelBedRoomNo" type="number" placeholder="Bed Room number">
+            <br>
+            <p id="indicator2"></p>
+            <button id="RemoveStudentbtn">Remove student</button>
+            <br>
+        
+        </deleteStudent>
+        <!-- update details box-->
+        <updateDetails id="updateDetailsBox" style="display: none;" class="Box">
+            <input id="UstudentName" type="text" placeholder="Student Name">
+            <br>
+            <input id="UstudentPhNo" type="number" placeholder="Student Mobile.no">
+            <br>
+            <input id="UguardianName" type="text" placeholder="Guardian Name">
+            <br>
+            <input id="UguardianPhNo" type="number" placeholder="Guardian Mobile.no">
+            <br>
+            <input id="UgenRoomNo" type="number" placeholder="General Room number">
+            <br>
+            <input id="UbedRoomNo" type="number" placeholder="Bed Room number">
+            <br>
+            <p id="indicator4"></p>
+            <button id="updateDetailsbtn" >Update details</button>
+            <br>
+        </updateDetails>
+       
+        <table id="studentDataTable">
+            <thead>
+                <th scope="col">Students</th>
+                <th scope="col">Student Id</th>
+                <th scope="col">Bedroom</th>
+                <th scope="col">Attendence</th>
+            </thead>
+
+            <tbody id="sdtBody">
+
+            </tbody>
+        </table>
+        
+    </main>
+    <footer>
+
+    </footer>
+</body>
+<script type="module" src="/SCRIPT/manageStudentsF.js"></script>
+<script type="module" src="/SCRIPT/manageStudentsB.js"></script>
+</html>
