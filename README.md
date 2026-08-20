@@ -7,7 +7,7 @@ Nest Hostel is a web-based hostel management system designed to simplify and dig
 👉 https://nest-hostel.web.app
 
 ✨ Features
-🔐 Multi-role login system (Admin / Student / Warden / Guardian)
+🔐 Multi-role login system (Admin / Student / Warden / Guardian)  
 🧑‍🎓 Student profile and hostel information management
 🧑‍🏫 Warden dashboard for monitoring activities
 👨‍👩‍👧 Guardian access to track student details
