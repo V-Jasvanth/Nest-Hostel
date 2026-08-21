@@ -14,7 +14,7 @@ let updatedData = {};
 // Fetch students data from Firebase
 onValue(Students, function(snapshot) {
     StudentsArray = Object.entries(snapshot.val());
-});
+}};
 
 function updatedDataFUN(newPassword, Student) {
     return {
