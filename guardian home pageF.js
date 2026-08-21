@@ -17,7 +17,7 @@ function toggleDisplay(boxId) {
             } else {
                 boxes[i].style.display = "none";
             }
-        } else {
+        }else {
             boxes[i].style.display = "none";
         }
     }
